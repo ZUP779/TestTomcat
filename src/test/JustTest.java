@@ -8,8 +8,10 @@ public class JustTest {
         user.setPwd("pass");
 
         UserDAO ud = new UserDAO();
-        ud.add(user);
+        //ud.add(user);
 
         System.out.println(ud.getTotal());
+
+        ud.ShowAll();
     }
 }

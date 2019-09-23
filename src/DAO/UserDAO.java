@@ -4,6 +4,8 @@ import com.sun.org.apache.xpath.internal.operations.Bool;
 import entity.User;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDAO {
     public UserDAO(){
@@ -17,7 +19,8 @@ public class UserDAO {
 
     public Connection getConnection() throws SQLException {
         return DriverManager.getConnection(
-                "jdbc:mysql://127.0.0.1:3306/testdb?characterEncoding=UTF-8&serverTimezone=GMT&useSSL=false");
+                "jdbc:mysql://127.0.0.1:3306/testdb?characterEncoding=UTF-8&serverTimezone=GMT&useSSL=false",
+                "root","19970628a");
     }
 
     public int getTotal(){
@@ -61,5 +64,32 @@ public class UserDAO {
         finally {
             return id;
         }
+    }
+
+    public void ShowAll(){
+        List<User> list = getUsers();
+
+        for( User u : list){
+            System.out.println(u.getId() + " " + u.getName());
+        }
+    }
+
+    public List<User> getUsers(){
+        String sql = "select * from user";
+        List<User> list = new ArrayList<>();
+
+        try(Connection c = getConnection(); PreparedStatement ps = c.prepareStatement(sql)){
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                User u = new User();
+                u.setId(rs.getInt(1));
+                u.setName(rs.getString(2));
+                u.setPwd(rs.getString(3));
+                list.add(u);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return list;
     }
 }
