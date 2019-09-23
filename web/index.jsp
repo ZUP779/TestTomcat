@@ -8,6 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
+    <script>
+      window.location.href="login.html";
+    </script>
     <title>Tomcat</title>
   </head>
   <body>
