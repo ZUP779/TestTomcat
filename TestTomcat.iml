@@ -32,5 +32,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="servlet-api" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-5.1.48-bin" level="project" />
   </component>
 </module>

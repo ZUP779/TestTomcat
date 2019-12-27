@@ -21,4 +21,22 @@
         <servlet-name>ListUser</servlet-name>
         <url-pattern>/list</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddDepartment</servlet-name>
+        <servlet-class>servlet.AddDepartment</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddDepartment</servlet-name>
+        <url-pattern>/addDep</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>listDepartment</servlet-name>
+        <servlet-class>servlet.listDepartment</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>listDepartment</servlet-name>
+        <url-pattern>/listDep</url-pattern>
+    </servlet-mapping>
 </web-app>
